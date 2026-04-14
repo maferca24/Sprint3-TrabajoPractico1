@@ -5,8 +5,8 @@
 
 import express from 'express';
 import {
-    obtenerTodosLosSuperheroesController, insertSuperHeroController
-} from '../controllers/superheroesControllers.mjs';
+    obtenerTodosLosSuperheroesController, crearSuperHeroeController} 
+    from '../controllers/superheroesControllers.mjs';
 
 const router = express.Router();
 

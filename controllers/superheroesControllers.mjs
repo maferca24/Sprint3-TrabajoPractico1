@@ -1,7 +1,7 @@
 //La capa de controladores gestiona las solicitudes del cliente y llama
 //a la capa de servicios para realizar las operaciones necesarias
 
-import { obtenerTodosLosSuperheroes}
+import { obtenerTodosLosSuperheroes, crearSuperHeroe}
     from "../services/superheroesService.mjs";
 
 import { renderizarListaSuperheroes }
