@@ -5,14 +5,19 @@
 
 import express from 'express';
 import {
-    obtenerTodosLosSuperheroesController
+    obtenerTodosLosSuperheroesController, insertSuperHeroController
 } from '../controllers/superheroesControllers.mjs';
 
 const router = express.Router();
 
 //Rutas fijas:
 //Todos los superheroes
-//http://localhost:3000/api/heroes
+//GET- Mostrar todos los superheroes
+// http://localhost:3000/api/heroes
 router.get('/heroes', obtenerTodosLosSuperheroesController);
+
+//POST- Crear un superheroe
+//http://localhost:3000/api/heroes
+router.post('/heroes', crearSuperHeroeController);
 
 export default router;

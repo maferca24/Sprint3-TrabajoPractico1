@@ -7,6 +7,11 @@ class IRepository {
         throw new Error("Método 'obtenerTodos()' no implementado");
 
     }
+    crear(datos) {
+        throw new Error("Método 'crear()' no implementado");
+    }
 }
 export default IRepository;
+
+
 
