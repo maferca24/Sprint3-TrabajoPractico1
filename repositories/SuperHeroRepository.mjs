@@ -14,7 +14,10 @@ class SuperHeroRepository extends IRepository {
             const nuevoSuperheroe = new SuperHero(datosHeroe);
 
             // Lo guardamos en MongoDB
+            console.log('Superheroe creado con exito');
+            console.log(datosHeroe);
             return await nuevoSuperheroe.save();
+            
         } catch (error) {
             // Es buena idea imprimir el error real en consola para debuguear
             console.error("Error en Repository:", error);
