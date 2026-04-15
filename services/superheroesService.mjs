@@ -8,6 +8,10 @@ export async function obtenerTodosLosSuperheroes() {
     return await superHeroRepository.obtenerTodos();
 }
 export async function crearSuperHeroe(superheroe) {
+    //Agregamos control para validar los datos antes de pasarlo al repositorio
+    if (!superheroe.nombreSuperHeroe || !superheroe.nombreReal) {
+        throw new Error("El nombre del superhéroe y su nombre real son obligatorios.");
+    }
     return await superHeroRepository.crearSuperHeroe(superheroe);
 }
 
