@@ -8,7 +8,6 @@ export async function obtenerTodosLosSuperheroes() {
     return await superHeroRepository.obtenerTodos();
 }
 export async function crearSuperHeroe(superheroe) {
-    // Aquí podrías poner lógica de negocio (ej: validar edad mínima)
-    return await repository.crearSuperHeroe(superheroe);
+    return await superHeroRepository.crearSuperHeroe(superheroe);
 }
 
