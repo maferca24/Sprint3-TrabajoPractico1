@@ -1,7 +1,7 @@
 //La capa de controladores gestiona las solicitudes del cliente y llama
 //a la capa de servicios para realizar las operaciones necesarias
 
-import { obtenerTodosLosSuperheroes, crearSuperHeroe}
+import { obtenerTodosLosSuperheroes, crearSuperHeroe, actualizarSuperHeroe}
     from "../services/superheroesService.mjs";
 
 import { renderizarListaSuperheroes }
@@ -34,6 +34,24 @@ export async function crearSuperHeroeController(req, res) {
     } catch (error) {
         res.status(500).send({
             mensaje: 'Error al crear el superhéroe',
+            error: error.message
+        });
+    }
+}
+export async function actualizarSuperHeroeController(req, res) {
+    try {
+        const{id}=req.params;
+        const datosActualizados= req.body;
+        const superHeroeActualizado = await actualizarSuperHeroe({id}, datosActualizados);
+        
+        // Respondemos con el objeto creado y un código 201 (Creado)
+        res.status(201).send({
+            mensaje: 'Superhéroe actualizado con éxito',
+            datos: superHeroeActualizado
+        });
+    } catch (error) {
+        res.status(500).send({
+            mensaje: 'Error al actualizar el superhéroe',
             error: error.message
         });
     }

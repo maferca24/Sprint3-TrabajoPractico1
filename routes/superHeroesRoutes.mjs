@@ -5,7 +5,7 @@
 
 import express from 'express';
 import {
-    obtenerTodosLosSuperheroesController, crearSuperHeroeController} 
+    obtenerTodosLosSuperheroesController, crearSuperHeroeController,actualizarSuperHeroeController} 
     from '../controllers/superheroesControllers.mjs';
 
 const router = express.Router();
@@ -19,5 +19,9 @@ router.get('/heroes', obtenerTodosLosSuperheroesController);
 //POST- Crear un superheroe
 //http://localhost:3000/api/heroes
 router.post('/heroes', crearSuperHeroeController);
+
+//PUT- Actualizar un superheroe por id
+//http://localhost:3000/api/heroe/:id
+router.post('/heroes', actualizarSuperHeroeController);
 
 export default router;
