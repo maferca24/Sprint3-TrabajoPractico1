@@ -17,30 +17,52 @@ class SuperHeroRepository extends IRepository {
             console.log('Superheroe creado con exito');
             console.log(datosHeroe);
             return await nuevoSuperheroe.save();
-            
-        } catch (error) {
-            // Es buena idea imprimir el error real en consola para debuguear
-            console.error("Error en Repository:", error);
-            throw new Error('Error al guardar el superhéroe en la base de datos');
-        }
-    }
-    async actualizarSuperHeroe(id, datosHeroe) {
-        try {
-            // Usamos 'datosHeroe' que es lo que recibe la función
-            const superheroeActualizado = new SuperHero(datosHeroe);
 
-            // Lo guardamos en MongoDB
-            console.log('Superheroe actualizado con exito');
-            console.log(datosHeroe);
-            return await nuevoSuperheroe.save();
-            
         } catch (error) {
             // Es buena idea imprimir el error real en consola para debuguear
             console.error("Error en Repository:", error);
             throw new Error('Error al guardar el superhéroe en la base de datos');
         }
+        
     }
+    async actualizarSuperHeroe(id, datosActualizados) { 
+        try {
+            return await SuperHero.findByIdAndUpdate(
+                id, 
+                { $set: datosActualizados }, 
+                { new: true } // { new: true } sirve para que nos devuelva el objeto ya modificado
+            );
+        } catch (error) {
+             throw new Error('Error al actualizar el superhéroe en la base de datos');
+        }
+    }
+
 }
+    // async actualizarSuperHeroe(id, datosActualizados) {
+    //     try {
+    //         // { new: true } sirve para que nos devuelva el objeto ya modificado
+    //         return await SuperHero.findByIdAndUpdate(id, datosActualizados, { new: true });
+    //     } catch (error) {
+    //         throw new Error('Error al actualizar el superhéroe en la base de datos');
+    //     }
+    // }
+    // async actualizarHeroe(id, datosActualizados) {
+    // try {
+    //     // Buscamos por el _id de Mongo y aplicamos los cambios
+    //     return await SuperHero.findByIdAndUpdate(
+    //         id, 
+    //         { $set: datosActualizados }, 
+    //         { new: true, runValidators: true } 
+    //     );
+    // } catch (error) {
+    //     throw new Error('Error al actualizar el superhéroe en la base de datos');
+    // }
+
+    
+
+
+
+
 export default new SuperHeroRepository();
 
 

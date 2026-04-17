@@ -14,11 +14,9 @@ export async function crearSuperHeroe(superheroe) {
     }
     return await superHeroRepository.crearSuperHeroe(superheroe);
 }
-export async function actualizarSuperHeroe(id, superheroe) {
-    //Agregamos control para validar los datos antes de pasarlo al repositorio
-    if (!superheroe.nombreSuperHeroe || !superheroe.nombreReal) {
-        throw new Error("El nombre del superhéroe y su nombre real son obligatorios.");
-    }
-    return await superHeroRepository.actualizarSuperHeroe(id,superheroe);
+export async function actualizarSuperHeroe(id, datos) {
+    return await superHeroRepository.actualizarSuperHeroe(id, datos);
 }
+
+
 

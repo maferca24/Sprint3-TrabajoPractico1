@@ -38,16 +38,21 @@ export async function crearSuperHeroeController(req, res) {
         });
     }
 }
+
 export async function actualizarSuperHeroeController(req, res) {
     try {
-        const{id}=req.params;
-        const datosActualizados= req.body;
-        const superHeroeActualizado = await actualizarSuperHeroe({id}, datosActualizados);
+        const { id } = req.params; // Toma el ID que viene en la URL /api/heroes/:id
+        const datosActualizados = req.body;
         
-        // Respondemos con el objeto creado y un código 201 (Creado)
-        res.status(201).send({
+        const superheroe = await actualizarSuperHeroe(id, datosActualizados);
+
+        if (!superheroe) {
+            return res.status(404).send({ mensaje: "Superhéroe no encontrado" });
+        }
+        // Respondemos con el objeto actualizado y un código 200 (Actualizado)
+        res.status(200).send({
             mensaje: 'Superhéroe actualizado con éxito',
-            datos: superHeroeActualizado
+            datos: superheroe
         });
     } catch (error) {
         res.status(500).send({

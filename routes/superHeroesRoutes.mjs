@@ -21,7 +21,7 @@ router.get('/heroes', obtenerTodosLosSuperheroesController);
 router.post('/heroes', crearSuperHeroeController);
 
 //PUT- Actualizar un superheroe por id
-//http://localhost:3000/api/heroe/:id
-router.post('/heroes', actualizarSuperHeroeController);
+//http://localhost:3000/api/heroes/:id
+router.put('/heroes/:id', actualizarSuperHeroeController);
 
 export default router;
