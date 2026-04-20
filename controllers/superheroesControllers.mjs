@@ -64,7 +64,7 @@ export async function actualizarSuperHeroeController(req, res) {
 }
 export async function eliminarSuperHeroeporIdController(req, res) {
     try {
-        const { id } = req.params; // Toma el ID que viene en la URL /api/heroes/:id
+        const { id } = req.params; // Toma el ID que viene en la URL /api/heroes/id/:id
         
         const superheroe = await eliminarSuperHeroeporID(id);
 

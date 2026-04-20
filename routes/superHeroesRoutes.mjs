@@ -32,7 +32,7 @@ Borre un superheroe por ID en la base de datos, y nos devuelva el superheroe bor
 //DELETE- Elimnar un superheroe por id
 //http://localhost:3000/api/heroes/:id
 //http://localhost:3000/api/heroes/69e00b5f98572b8f21c7876d
-router.delete('/heroes/:id', eliminarSuperHeroeporIdController);
+router.delete('/heroes/id/:id', eliminarSuperHeroeporIdController);
 
 //DELETE- Elimnar un superheroe por nombre
 router.delete('/heroes/nombre/:nombre', eliminarSuperHeroeporNombreController);
