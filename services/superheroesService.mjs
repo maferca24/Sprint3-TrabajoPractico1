@@ -20,6 +20,9 @@ export async function actualizarSuperHeroe(id, datos) {
 export async function eliminarSuperHeroeporID(id) {
     return await superHeroRepository.eliminarSuperHeroeporID(id);
 }
+export async function eliminarSuperHeroeporNombre(nombre) {
+    return await superHeroRepository.eliminarSuperHeroeporNombre(nombre);
+}
 
 
 

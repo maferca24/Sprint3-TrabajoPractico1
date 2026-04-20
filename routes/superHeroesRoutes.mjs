@@ -5,7 +5,8 @@
 
 import express from 'express';
 import {
-    obtenerTodosLosSuperheroesController, crearSuperHeroeController,actualizarSuperHeroeController, eliminarSuperHeroeporIdController} 
+    obtenerTodosLosSuperheroesController, crearSuperHeroeController,actualizarSuperHeroeController, 
+    eliminarSuperHeroeporIdController,eliminarSuperHeroeporNombreController} 
     from '../controllers/superheroesControllers.mjs';
 
 const router = express.Router();
@@ -34,7 +35,7 @@ Borre un superheroe por ID en la base de datos, y nos devuelva el superheroe bor
 router.delete('/heroes/:id', eliminarSuperHeroeporIdController);
 
 //DELETE- Elimnar un superheroe por nombre
-// router.delete('/heroes/:id', eliminarSuperHeroeporNombreController);
+router.delete('/heroes/nombre/:nombre', eliminarSuperHeroeporNombreController);
 
 
 export default router;

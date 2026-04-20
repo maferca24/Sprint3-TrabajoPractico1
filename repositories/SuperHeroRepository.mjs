@@ -43,11 +43,15 @@ class SuperHeroRepository extends IRepository {
              throw new Error('Error al eliminar el superhéroe en la base de datos');
         }
     }
+    async eliminarSuperHeroeporNombre(nombre) { 
+        try {
+            return await SuperHero.findOneAndDelete({ nombreSuperHeroe: nombre });
+        } catch (error) {
+             throw new Error('Error al eliminar el superhéroe en la base de datos');
+        }
+    }
 
 } 
-
-
-
 
 export default new SuperHeroRepository();
 
