@@ -1,7 +1,7 @@
 //La capa de controladores gestiona las solicitudes del cliente y llama
 //a la capa de servicios para realizar las operaciones necesarias
 
-import { obtenerTodosLosSuperheroes, crearSuperHeroe, actualizarSuperHeroe}
+import { obtenerTodosLosSuperheroes, crearSuperHeroe, actualizarSuperHeroe, eliminarSuperHeroeporID}
     from "../services/superheroesService.mjs";
 
 import { renderizarListaSuperheroes }
@@ -57,6 +57,27 @@ export async function actualizarSuperHeroeController(req, res) {
     } catch (error) {
         res.status(500).send({
             mensaje: 'Error al actualizar el superhéroe',
+            error: error.message
+        });
+    }
+}
+export async function eliminarSuperHeroeporIdController(req, res) {
+    try {
+        const { id } = req.params; // Toma el ID que viene en la URL /api/heroes/:id
+        
+        const superheroe = await eliminarSuperHeroeporID(id);
+
+        if (!superheroe) {
+            return res.status(404).send({ mensaje: "Superhéroe no encontrado" });
+        }
+        // Respondemos con el objeto actualizado y un código 200 (Actualizado)
+        res.status(200).send({
+            mensaje: 'Superhéroe eliminado con éxito',
+            datos: superheroe
+        });
+    } catch (error) {
+        res.status(500).send({
+            mensaje: 'Error al eliminar el superhéroe',
             error: error.message
         });
     }

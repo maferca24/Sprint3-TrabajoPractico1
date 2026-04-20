@@ -36,29 +36,15 @@ class SuperHeroRepository extends IRepository {
              throw new Error('Error al actualizar el superhéroe en la base de datos');
         }
     }
+    async eliminarSuperHeroeporID(id) { 
+        try {
+            return await SuperHero.findByIdAndDelete(id);
+        } catch (error) {
+             throw new Error('Error al eliminar el superhéroe en la base de datos');
+        }
+    }
 
-}
-    // async actualizarSuperHeroe(id, datosActualizados) {
-    //     try {
-    //         // { new: true } sirve para que nos devuelva el objeto ya modificado
-    //         return await SuperHero.findByIdAndUpdate(id, datosActualizados, { new: true });
-    //     } catch (error) {
-    //         throw new Error('Error al actualizar el superhéroe en la base de datos');
-    //     }
-    // }
-    // async actualizarHeroe(id, datosActualizados) {
-    // try {
-    //     // Buscamos por el _id de Mongo y aplicamos los cambios
-    //     return await SuperHero.findByIdAndUpdate(
-    //         id, 
-    //         { $set: datosActualizados }, 
-    //         { new: true, runValidators: true } 
-    //     );
-    // } catch (error) {
-    //     throw new Error('Error al actualizar el superhéroe en la base de datos');
-    // }
-
-    
+} 
 
 
 

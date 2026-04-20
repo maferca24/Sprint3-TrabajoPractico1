@@ -5,7 +5,7 @@
 
 import express from 'express';
 import {
-    obtenerTodosLosSuperheroesController, crearSuperHeroeController,actualizarSuperHeroeController} 
+    obtenerTodosLosSuperheroesController, crearSuperHeroeController,actualizarSuperHeroeController, eliminarSuperHeroeporIdController} 
     from '../controllers/superheroesControllers.mjs';
 
 const router = express.Router();
@@ -23,5 +23,18 @@ router.post('/heroes', crearSuperHeroeController);
 //PUT- Actualizar un superheroe por id
 //http://localhost:3000/api/heroes/:id
 router.put('/heroes/:id', actualizarSuperHeroeController);
+
+/********
+ Requerimiento: Agregar un endpoint que al realizarle una peticion
+Borre un superheroe por ID en la base de datos, y nos devuelva el superheroe borrado
+*********/
+//DELETE- Elimnar un superheroe por id
+//http://localhost:3000/api/heroes/:id
+//http://localhost:3000/api/heroes/69e00b5f98572b8f21c7876d
+router.delete('/heroes/:id', eliminarSuperHeroeporIdController);
+
+//DELETE- Elimnar un superheroe por nombre
+// router.delete('/heroes/:id', eliminarSuperHeroeporNombreController);
+
 
 export default router;

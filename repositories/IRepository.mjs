@@ -11,8 +11,11 @@ class IRepository {
         throw new Error("Método 'crear()' no implementado");
     }
     actualizarSuperHeroe(id, datos) {
-    throw new Error("Método 'actualizarHeroe()' no implementado");
-}
+        throw new Error("Método 'actualizarHeroe()' no implementado");
+    }
+    eliminarSuperHeroe(id, datos) {
+        throw new Error("Método 'actualizarHeroe()' no implementado");
+    }
 }
 export default IRepository;
 
